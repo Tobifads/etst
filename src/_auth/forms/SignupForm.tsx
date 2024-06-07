@@ -18,9 +18,9 @@ import { z } from "zod";
 import Loader from "@/components/shared/loader";
 import {
   useCreateUserAccount,
-  useSigninAccount,
+  useSignInAccount,
 } from "@/lib/react-query/queriesAndMutations";
-import { SigninAccount } from "@/lib/appwirte/api";
+import { signInAccount } from "@/lib/appwirte/api";
 import { useUserContext } from "@/context/AuthContext";
 
 const SignupForm = () => {
@@ -35,7 +35,7 @@ const SignupForm = () => {
     mutateAsync: signInAccount,
     isPending,
     isSigningIn,
-  } = useSigninAccount();
+  } = useSignInAccount();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignupValidation>>({
